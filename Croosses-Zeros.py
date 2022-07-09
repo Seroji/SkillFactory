@@ -1,6 +1,6 @@
 def game(c):  # Функция переноса введённых координат на поле
     x, y = list(map(int, c))
-    if not all(x.isdigit() for x in c) and (not (x >= 0)):
+    if not all(x.isdigit() for x in c) or x < 0 or (x not in default_coord) or (y not in default_coord):
         print('Введены неверные координаты!')
         m_print(filed)
         return
@@ -72,6 +72,7 @@ m_print(filed)
 
 count = 0
 result = False
+default_coord = [0,1,2]
 
 while not result:
     if count:
